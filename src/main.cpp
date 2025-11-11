@@ -97,10 +97,10 @@ class $modify(MyLayer, SetupAudioLineGuidePopup){
         }
         
         //no errors please
-        auto BPMValueObject = static_cast<CCTextInputNode*>(this->getChildByIndex(0)->getChildByIndex(14));
+        auto BPMValueObject = static_cast<CCTextInputNode*>(this->m_inputNodes->objectForKey(498));
         if (! BPMValueObject) return;
 
-        auto BPMTextField = static_cast<CCTextFieldTTF*>(BPMValueObject->getChildByIndex(0));
+        auto BPMTextField = BPMValueObject->m_textField;
         if (! BPMTextField) return;
 
         int songBPM = static_cast<int>(std::round(detectBPM(fileSongPath)));
